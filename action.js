@@ -17,12 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const boutonAchatBonus3 = document.querySelector("#btn-bonus-boost");
   const chiffreBouton3 = document.querySelector(".prix-bonus3");
 
+  const chiffreTimer = document.querySelector("#timer");
+
   let valeurCompteur = 0;
   let valeurBtnBonus1 = parseInt(chiffreBouton1.textContent);
   let valeurBtnBonus2 = parseInt(chiffreBouton2.textContent);
   let valeurBtnBonus3 = parseInt(chiffreBouton3.textContent);
   let sommeBonus1 = 0;
-  let sommeBonus2 = 0;
+  let valeurTimer = 110;
 
 
 
@@ -75,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
    boutonAchatBonus2.addEventListener("click", (event) => {
     event.preventDefault();
+    feedBackColorBonus(bonus2);
     valeurCompteur -= valeurBtnBonus2;
     chiffreCompteur.textContent = parseInt(valeurCompteur);
     ajout1PointPar2s();
@@ -118,9 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000)
   }
   function feedBackColorBonus(bonus) {
-    bonus.style.backgroundColor = "#fb5f41"
+    bonus.style.backgroundColor = "#0D520A"
     setTimeout(() => {
         bonus.style.backgroundColor = "";
     }, 250);
+  }
+  function ChronoPrincipal() {
+    setTimeout(() => {
+
+    })
   }
 });

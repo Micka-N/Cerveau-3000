@@ -207,8 +207,7 @@ body {
 }
 
 .contain-ameliorations button {
-    position: relative;
-    bottom: 8px;
+
     margin-left: 20px;
     border-radius: 10px;
     border: 1px solid rgb(21, 21, 72);
@@ -219,7 +218,11 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.2s ease-in-out;
     justify-self: center;
-    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 34px;
 }
 
 .contain-ameliorations button:hover {
@@ -233,6 +236,14 @@ body {
 button .price {
     color: #f9f9f9;
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
     padding-right: 5px;
+}
+
+#fish-logo {
+    width: 64px;
+}
+
+#fish-logo2 {
+    width: 32px;
 }
