@@ -41,31 +41,55 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     mediterManuellement();
 
-    if (verifierDispo(valeurBtnBonus1)) {
+if (verifierDispo(valeurBtnBonus1)) {
         apparition(bonus1);
-    } else disparition(bonus1);
+        boutonAchatBonus1.disabled = false;
+    } else {
+      disparition(bonus1);
+      boutonAchatBonus1.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus2)) {
         apparition(bonus2);
-    } else disparition(bonus2);
+        boutonAchatBonus2.disabled = false;
+    } else {
+      disparition(bonus2);
+      boutonAchatBonus2.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus3)) {
         apparition(bonus3);
-    } else disparition(bonus3);
-
+        boutonAchatBonus3.disabled = false;
+    } else {
+      disparition(bonus3);
+      boutonAchatBonus3.disabled = true;
+    }
   });
 
   boutonAmeliorer.addEventListener("click", (event) => {
     event.preventDefault();
+    boutonAmeliorer.classList.add("hidden");
     conteneurAmeliorations.classList.remove("hidden");
     
-    if (verifierDispo(valeurBtnBonus1)) {
+  if (verifierDispo(valeurBtnBonus1)) {
         apparition(bonus1);
-    } else disparition(bonus1);
+        boutonAchatBonus1.disabled = false;
+    } else {
+      disparition(bonus1);
+      boutonAchatBonus1.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus2)) {
         apparition(bonus2);
-    } else disparition(bonus2);
+        boutonAchatBonus2.disabled = false;
+    } else {
+      disparition(bonus2);
+      boutonAchatBonus2.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus3)) {
         apparition(bonus3);
-    } else disparition(bonus3);
+        boutonAchatBonus3.disabled = false;
+    } else {
+      disparition(bonus3);
+      boutonAchatBonus3.disabled = true;
+    }
     
   });
 
@@ -75,15 +99,27 @@ document.addEventListener("DOMContentLoaded", () => {
     sommeBonus1++;
     valeurCompteur -= valeurBtnBonus1;
     chiffreCompteur.textContent = parseInt(valeurCompteur);
-    if (verifierDispo(valeurBtnBonus1)) {
+  if (verifierDispo(valeurBtnBonus1)) {
         apparition(bonus1);
-    } else disparition(bonus1);
+        boutonAchatBonus1.disabled = false;
+    } else {
+      disparition(bonus1);
+      boutonAchatBonus1.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus2)) {
         apparition(bonus2);
-    } else disparition(bonus2);
+        boutonAchatBonus2.disabled = false;
+    } else {
+      disparition(bonus2);
+      boutonAchatBonus2.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus3)) {
         apparition(bonus3);
-    } else disparition(bonus3);
+        boutonAchatBonus3.disabled = false;
+    } else {
+      disparition(bonus3);
+      boutonAchatBonus3.disabled = true;
+    }
     valeurBtnBonus1 += valeurBtnBonus1 * 20 / 100;
     chiffreBouton1.textContent = Math.round(valeurBtnBonus1);
   });
@@ -92,15 +128,27 @@ document.addEventListener("DOMContentLoaded", () => {
     feedBackColorBonus(bonus2);
     valeurCompteur -= valeurBtnBonus2;
     chiffreCompteur.textContent = parseInt(valeurCompteur);
-    if (verifierDispo(valeurBtnBonus1)) {
+   if (verifierDispo(valeurBtnBonus1)) {
         apparition(bonus1);
-    } else disparition(bonus1);
+        boutonAchatBonus1.disabled = false;
+    } else {
+      disparition(bonus1);
+      boutonAchatBonus1.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus2)) {
         apparition(bonus2);
-    } else disparition(bonus2);
+        boutonAchatBonus2.disabled = false;
+    } else {
+      disparition(bonus2);
+      boutonAchatBonus2.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus3)) {
         apparition(bonus3);
-    } else disparition(bonus3);
+        boutonAchatBonus3.disabled = false;
+    } else {
+      disparition(bonus3);
+      boutonAchatBonus3.disabled = true;
+    }
     valeurBtnBonus2 += valeurBtnBonus2 * 20 / 100;
     chiffreBouton2.textContent = Math.round(valeurBtnBonus2);
     ajout1PointPar2s();
@@ -111,15 +159,27 @@ document.addEventListener("DOMContentLoaded", () => {
         feedBackColorBonus(bonus3);
         valeurCompteur -= valeurBtnBonus3;
         chiffreCompteur.textContent = parseInt(valeurCompteur);
-    if (verifierDispo(valeurBtnBonus1)) {
+   if (verifierDispo(valeurBtnBonus1)) {
         apparition(bonus1);
-    } else disparition(bonus1);
+        boutonAchatBonus1.disabled = false;
+    } else {
+      disparition(bonus1);
+      boutonAchatBonus1.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus2)) {
         apparition(bonus2);
-    } else disparition(bonus2);
+        boutonAchatBonus2.disabled = false;
+    } else {
+      disparition(bonus2);
+      boutonAchatBonus2.disabled = true;
+    }
     if (verifierDispo(valeurBtnBonus3)) {
         apparition(bonus3);
-    } else disparition(bonus3);
+        boutonAchatBonus3.disabled = false;
+    } else {
+      disparition(bonus3);
+      boutonAchatBonus3.disabled = true;
+    }
     valeurBtnBonus3 += valeurBtnBonus3 * 20 / 100;
     chiffreBouton3.textContent = Math.round(valeurBtnBonus3);
   });
@@ -152,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000)
   }
   function feedBackColorBonus(bonus) {
-    bonus.style.backgroundColor = "#0D520A"
+    bonus.style.backgroundColor = "#F9D5BE"
     setTimeout(() => {
         bonus.style.backgroundColor = "";
     }, 250);
@@ -171,11 +231,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function chrono30() {
     const time30 = setInterval(() => {
         boutonAchatBonus3.style.backgroundColor = "grey";
+        boutonAchatBonus3.disabled = true;
         valeurTimer30--;
         chiffreTimer30.textContent = valeurTimer30;
-
+      
         if (valeurTimer30 <= 0) {
             clearInterval(time30);
+            boutonAchatBonus3.disabled = false;
         }
     }, 1000);
     return time30;

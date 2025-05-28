@@ -7,28 +7,88 @@
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <main class="fenetre">
-            <div class="contain-compt"><span id="compteur">0</span><img id="fish-logo" src="image/fish.png"></img></div>
-        <div class="contain-btn">
-            <button id="btn-mediter" class="btn">Pêcher</button>
-            <button id="btn-achat" class="btn">Améliorer</button>
-            <div class="contain-timer"><img id="chronom" src="image/chronometre.png" alt=""><span id="timer">110</span>sec</div>
-        </div>
-        <div class="contain-ameliorations hidden">
-            <h3>❇︎ Ameliorations ❇︎</h3>
-            <div class="cont1">
-            <p class="bonus1 flash"><span>* Amorcer * <img id="amorce" src="image/amorce.png" alt="filet de pêche"></span> Un poisson de plus à chaque pêche !.<button id="btn-bonus-manuel"><span class="prix-bonus1 price">20</span><img id="fish-logo2" src="image/fish.png"></img></button></p>
+    <body>  
+        <main id="fenetre" class="page active">
+            <div class="contain-boutons">
+                    <button id="btn-achat" class="btn">Améliorer</button>
+                    <div class="contain-compt">
+                        <span id="compteur">0</span>
+                        <img id="fish-logo" src="image/fish.png"></img>
+                    </div>
+                    <div class="contain-btn">
+                        <button id="btn-mediter" class="btn">Pêcher</button>
+                        <div class="contain-timer">
+                            <img id="chronom" src="image/chronometre.png" alt="">
+                            <span id="timer">110</span>sec
+                        </div>
+                    </div>
             </div>
-            <div class="cont2">
-            <p class="bonus2 flash"><span>* Poser un filet * <img id="filet" src="image/filet.png" alt="filet de pêche"></span> Capture automatiquement un poisson toutes les 2 secondes.<button id="btn-bonus-auto"><span class="prix-bonus2 price">100</span><img id="fish-logo2" src="image/fish.png"></img></button></p>
+            <div class="contain-ameliorations hidden">
+                <h2>⇩ Ameliorations disponibles ⇩</h2>
+
+                <div class="fond cont1 bonus1">
+                    <div class="premiere-ligne">
+                        <div class="partie-gauche">
+                            <h3>* Amorcer *</h3>
+                        </div>
+                        <div class="partie-centrale">
+                            <button id="btn-bonus-manuel">
+                                <span class="prix-bonus1 price">20</span>
+                                <img id="fish-logo2" src="image/fish.png"></img>
+                            </button>
+                        </div>
+                        <div class="partie-droite">
+                            <img id="amorce" class="ico-appat" src="image/amorce.png" alt="boules d'amorce">
+                        </div>
+                    </div>
+                    <p class="description">Un poisson de plus à chaque pêche !</p>
+                </div>
+
+                <div class="fond cont2 bonus2">
+                    <div class="premiere-ligne">
+                        <div class="partie-gauche">
+                            <h3>* Poser un filet *</h3>
+                        </div>
+                        <div class="partie-bouton">
+                            <button id="btn-bonus-auto">
+                                <span class="prix-bonus2 price">100</span>
+                                <img id="fish-logo2" src="image/fish.png"></img>
+                            </button>
+                        </div>
+                        <div class="partie-droite">
+                            <img id="filet" class="ico-appat" src="image/filet.png" alt="filet de pêche">
+                        </div>
+                    </div>
+                    <p class="description">Capture automatiquement un poisson toutes les 2 secondes.</p>
+                </div>
+
+                <div class="fond cont3 bonus3">
+                    <div class="premiere-ligne">
+                        <div class="partie-gauche">
+                            <h3>* Super appât spécial *</h3>
+                            <div class="cont-time">
+                                <img id="reveil" src="image/chrono301.gif" alt="chrono">
+                                <span id="timer30">30</span>sec
+                            </div>
+                        </div>
+                        <div class="partie-bouton">
+                            <button id="btn-bonus-boost">
+                                <span class="prix-bonus3 price">200</span>
+                                <img id="fish-logo2" src="image/fish.png"></img>
+                            </button>
+                        </div>
+                        <div class="partie-droite">
+                            <img id="filet" class="ico-appat" src="image/hook.png" alt="appat special">
+                        </div>
+                    </div>
+                    <p class="description">Les poissons l'adore ! Coûteux mais efficace, disponible toutes les 30 secondes.</p>
+                </div>
             </div>
-            <div class="cont3">
-            <p class="bonus3 flash"><span>* Super appât spécial *<span class="cont"><img id="reveil" src="image/chrono301.gif" alt="chrono"><span id="timer30">30</span>sec</span><img id="filet" src="image/rapala.png" alt="filet de pêche"></span> Les poissons l'adore ! Coûteux mais efficace, disponible toutes les 30 secondes.<button id="btn-bonus-boost"><span class="prix-bonus3 price">200</span><img id="fish-logo2" src="image/fish.png"></img></button></p>
+            <div class="contain-bonhomme">
+                <img class="pecheur" src="image/pecheur fous.png" alt="pecheur fou">
             </div>
-        </div>
         </main>
-        <img class="pecheur" src="image/pecheur fous.png" alt="pecheur fou">
+        <div id="accueil" class="page hidden"></div>
         <script src="action.js"></script>
     </body>
 </html>

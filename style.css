@@ -94,7 +94,7 @@ body {
     padding: 5px;
 }
 
-.fenetre {
+#fenetre {
     border: 3px solid #386c5f;
     background-color: #679c81;
     height: 700px;
@@ -106,11 +106,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    overflow: hidden;
 }
 
 .contain-compt {
     height: 60px;
-    width: 400px;
+    width: 300px;
     border: 1px solid rgb(8, 32, 11);
     display: flex;
     justify-content: flex-end;
@@ -139,8 +140,8 @@ body {
 }
 
 .btn {
-    height: 60px;
-    width: 160px;
+    height: 50px;
+    width: 110px;
     border-radius: 10px;
     border: 1px solid rgb(21, 21, 72);
     font-size: 1.4rem;
@@ -148,15 +149,26 @@ body {
     background-color: rgb(63, 220, 155);
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn:hover {
     transform: scale(1.05);
     transition: all 0.2s ease-in-out;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 400;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
     background-color: rgb(51, 180, 127);
+}
+
+.contain-boutons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .contain-ameliorations {
@@ -169,65 +181,92 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    padding: 20px 0;
 }
 
-.contain-ameliorations h3 {
-    align-self: center;
+.contain-ameliorations h2 {
+    align-self: flex-start;
     color: #394b41;
     font-size: 1.5rem;
+    margin-left: 20px;
 }
 
-.cont1, .cont2, .cont3 {
+.fond {
+    background-color: #3fdc9b;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    margin-bottom: 15px;
 }
 
-.contain-ameliorations p {
-    background-color: #3fdc9b;
-    width: 100%;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    padding:0 15px;
-    padding-bottom: 4px;
+.contain-ameliorations .fond:hover {
+    background-color: #43a37b;
 }
 
-.contain-ameliorations p:hover {
-    background-color: #2fb07a;
-}
-
-.contain-ameliorations span {
-    font-weight: 700;
-    color: #0058ab;
-    font-size: 1.2rem;
+.premiere-ligne {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 55px;
+    gap: 10px;
+    padding: 0 5px;
+}
+
+.partie-gauche {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    min-width: 340px;
+}
+
+.partie-bouton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partie-droite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    margin-left: 5px;
+}
+
+.cont-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contain-ameliorations button {
-
-    margin-left: 20px;
     border-radius: 10px;
     border: 1px solid rgb(21, 21, 72);
     font-size: 1rem;
     font-weight: 400;
     background-color: #0058ab;
-    color: #f9f9f9;
+    color: #ffffff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.2s ease-in-out;
-    justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90px;
     height: 34px;
+    align-self: center;
+    cursor: pointer;
 }
 
 .contain-ameliorations button:hover {
@@ -253,19 +292,8 @@ button .price {
     width: 32px;
 }
 
-#filet {
-    width: 32px;
-    margin-top: 4px;
-}
-
-#amorce {
-    width: 32px;
-    margin-top: 4px;
-}
-
-#rapala {
-    width: 56px;
-    margin-top: 4px;
+.ico-appat {
+    width: 36px;
 }
 
 .contain-timer {
@@ -286,10 +314,7 @@ button .price {
     margin-right: 2px;
 }
 
-.pecheur {
-    position: absolute;
-    top: 550px;
-}
+
 
 #reveil {
     width: 32px;
@@ -299,4 +324,10 @@ button .price {
 .cont {
     height: 48px;
     max-width: 100px;
+}
+
+.pecheur {
+    position: relative;
+    bottom: 70px;
+    right: 10px;
 }
