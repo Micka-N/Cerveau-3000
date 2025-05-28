@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const chiffreBouton3 = document.querySelector(".prix-bonus3");
 
   const chiffreTimer = document.querySelector("#timer");
+  const chiffreTimer30 = document.querySelector("#timer30");
 
   let valeurCompteur = 0;
   let valeurBtnBonus1 = parseInt(chiffreBouton1.textContent);
@@ -25,7 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let valeurBtnBonus3 = parseInt(chiffreBouton3.textContent);
   let sommeBonus1 = 0;
   let valeurTimer = 110;
-
+  let aDejaClique = false;
+  let valeurTimer30 = 30;
 
 
 
@@ -33,6 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   boutonMediter.addEventListener("click", (event) => {
     event.preventDefault();
+    if (!aDejaClique) {
+        chronoPrincipal();
+        aDejaClique = true;
+    }
     mediterManuellement();
 
     if (verifierDispo(valeurBtnBonus1)) {
@@ -72,6 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (verifierDispo(valeurBtnBonus1)) {
         apparition(bonus1);
     } else disparition(bonus1);
+    if (verifierDispo(valeurBtnBonus2)) {
+        apparition(bonus2);
+    } else disparition(bonus2);
+    if (verifierDispo(valeurBtnBonus3)) {
+        apparition(bonus3);
+    } else disparition(bonus3);
     valeurBtnBonus1 += valeurBtnBonus1 * 20 / 100;
     chiffreBouton1.textContent = Math.round(valeurBtnBonus1);
   });
@@ -80,8 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     feedBackColorBonus(bonus2);
     valeurCompteur -= valeurBtnBonus2;
     chiffreCompteur.textContent = parseInt(valeurCompteur);
-    ajout1PointPar2s();
-
     if (verifierDispo(valeurBtnBonus1)) {
         apparition(bonus1);
     } else disparition(bonus1);
@@ -91,6 +101,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (verifierDispo(valeurBtnBonus3)) {
         apparition(bonus3);
     } else disparition(bonus3);
+    valeurBtnBonus2 += valeurBtnBonus2 * 20 / 100;
+    chiffreBouton2.textContent = Math.round(valeurBtnBonus2);
+    ajout1PointPar2s();
+  });
+  boutonAchatBonus3.addEventListener("click", (event) => {
+        event.preventDefault();
+        chrono30();
+        feedBackColorBonus(bonus3);
+        valeurCompteur -= valeurBtnBonus3;
+        chiffreCompteur.textContent = parseInt(valeurCompteur);
+    if (verifierDispo(valeurBtnBonus1)) {
+        apparition(bonus1);
+    } else disparition(bonus1);
+    if (verifierDispo(valeurBtnBonus2)) {
+        apparition(bonus2);
+    } else disparition(bonus2);
+    if (verifierDispo(valeurBtnBonus3)) {
+        apparition(bonus3);
+    } else disparition(bonus3);
+    valeurBtnBonus3 += valeurBtnBonus3 * 20 / 100;
+    chiffreBouton3.textContent = Math.round(valeurBtnBonus3);
   });
 
 
@@ -126,9 +157,28 @@ document.addEventListener("DOMContentLoaded", () => {
         bonus.style.backgroundColor = "";
     }, 250);
   }
-  function ChronoPrincipal() {
-    setTimeout(() => {
+   function chronoPrincipal() {
+    const time = setInterval(() => {
+        valeurTimer--;
+        chiffreTimer.textContent = valeurTimer;
 
-    })
+        if (valeurTimer <= 0) {
+            clearInterval(time);
+        }
+    }, 1000);
+    return time;
   }
+  function chrono30() {
+    const time30 = setInterval(() => {
+        boutonAchatBonus3.style.backgroundColor = "grey";
+        valeurTimer30--;
+        chiffreTimer30.textContent = valeurTimer30;
+
+        if (valeurTimer30 <= 0) {
+            clearInterval(time30);
+        }
+    }, 1000);
+    return time30;
+  }
+  
 });

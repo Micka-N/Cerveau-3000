@@ -80,7 +80,7 @@ button, input, textarea {
 }
 
 body {
-    height: 100vh;
+    max-height: 100vh;
     width: 100%;
     background-color: #9bb0a4;
     background-position: center;
@@ -193,7 +193,8 @@ body {
     width: 100%;
     font-size: 1.1rem;
     border-radius: 10px;
-    padding-left: 15px;
+    padding:0 15px;
+    padding-bottom: 4px;
 }
 
 .contain-ameliorations p:hover {
@@ -204,6 +205,10 @@ body {
     font-weight: 700;
     color: #0058ab;
     font-size: 1.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .contain-ameliorations button {
@@ -246,4 +251,52 @@ button .price {
 
 #fish-logo2 {
     width: 32px;
+}
+
+#filet {
+    width: 32px;
+    margin-top: 4px;
+}
+
+#amorce {
+    width: 32px;
+    margin-top: 4px;
+}
+
+#rapala {
+    width: 56px;
+    margin-top: 4px;
+}
+
+.contain-timer {
+    width: 100px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+}
+
+#chronom {
+    width: 32px;
+    margin-right: 5px;
+}
+
+#timer {
+    margin-right: 2px;
+}
+
+.pecheur {
+    position: absolute;
+    top: 550px;
+}
+
+#reveil {
+    width: 32px;
+    margin-right: 10px;
+}
+
+.cont {
+    height: 48px;
+    max-width: 100px;
 }
