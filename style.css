@@ -77,6 +77,7 @@ button, input, textarea {
 .hidden {
     opacity: 0;
     display: none;
+    max-height: 1px;
 }
 
 body {
@@ -94,9 +95,66 @@ body {
     padding: 5px;
 }
 
-#fenetre {
+
+#accueil {
+    position: absolute;
+    top: 5px;
     border: 3px solid #386c5f;
-    background-color: #679c81;
+    background-color: #41baa2;
+    height: 700px;
+    border-radius: 20px;
+    width: 750px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.cont-bout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    font-family: 'Bubblegum Sans';
+    font-size:3.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#fenetre {
+    position: absolute;
+    top: 5px;
+    border: 3px solid #386c5f;
+    background-color: #7BAE9E;
     height: 700px;
     border-radius: 20px;
     width: 750px;
@@ -110,13 +168,13 @@ body {
 }
 
 .contain-compt {
-    height: 60px;
+    height: 50px;
     width: 300px;
     border: 1px solid rgb(8, 32, 11);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: rgb(13, 82, 9);
+    background-color: rgb(30, 114, 119);
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     border-radius: 10px;
 }
@@ -134,9 +192,14 @@ body {
 }
 
 #compteur {
+    height: 100%;
     padding-right: 5px;
-    color: rgb(0, 255, 0);
+    color: rgb(255, 255, 255);
     font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6px;
 }
 
 .btn {
@@ -146,7 +209,7 @@ body {
     border: 1px solid rgb(21, 21, 72);
     font-size: 1.4rem;
     font-weight: 400;
-    background-color: rgb(63, 220, 155);
+    background-color: rgb(63, 220, 178);
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -161,7 +224,7 @@ body {
     font-size: 1.5rem;
     font-weight: 400;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
-    background-color: rgb(51, 180, 127);
+    background-color: rgb(57, 191, 156);
 }
 
 .contain-boutons {
@@ -169,6 +232,12 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+.effaceur {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    cursor: default;
 }
 
 .contain-ameliorations {
@@ -185,14 +254,18 @@ body {
 }
 
 .contain-ameliorations h2 {
-    align-self: flex-start;
-    color: #394b41;
-    font-size: 1.5rem;
-    margin-left: 20px;
+    color: #0058ab;
+    cursor: default;
+    margin-left: 8px;
+}
+
+.contain-ameliorations h3 {
+    color: #a027ab;
+    cursor: default;
 }
 
 .fond {
-    background-color: #3fdc9b;
+    background-color: rgb(63, 220, 178);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -202,7 +275,7 @@ body {
 }
 
 .contain-ameliorations .fond:hover {
-    background-color: #43a37b;
+    background-color: rgb(57, 191, 156);
 }
 
 .premiere-ligne {
@@ -239,7 +312,13 @@ body {
     margin-left: 5px;
 }
 
-.cont-time {
+.filet1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-log {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,11 +328,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: default;
 }
 
 .contain-ameliorations button {
     border-radius: 10px;
-    border: 1px solid rgb(21, 21, 72);
+    border: 2px solid rgb(32, 32, 90);
     font-size: 1rem;
     font-weight: 400;
     background-color: #0058ab;
@@ -314,6 +394,10 @@ button .price {
     margin-right: 2px;
 }
 
+#filet1 {
+    width: 32px;
+    margin-right: 3px;
+}
 
 
 #reveil {
@@ -326,8 +410,103 @@ button .price {
     max-width: 100px;
 }
 
+#qte-filet {
+    margin-right: 2px;
+}
+
 .pecheur {
     position: relative;
-    bottom: 70px;
     right: 10px;
+    bottom: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#fenetre-fin {
+    position: absolute;
+    top: 5px;
+    border: 3px solid #386c5f;
+    background-color: #7dc8be;
+    height: 700px;
+    border-radius: 20px;
+    width: 750px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.resultats {
+    border: 1px solid black;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#fish-logo-result {
+    width: 64px;
+}
+
+#compteur-total {
+    height: 100%;
+    padding-right: 5px;
+    color: rgb(255, 255, 255);
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6px;
+}
+
+.contain-compt2 {
+    height: 50px;
+    border: 1px solid rgb(8, 32, 11);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(30, 114, 119);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.tableau-scores {
+    border: 1px solid black;
+    background-color: #c8e086;
+    min-height: 260px;
+    width: 460px;
 }

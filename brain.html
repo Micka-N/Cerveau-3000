@@ -5,10 +5,28 @@
         <meta charset="UTF-8">
         <title>Cerveau 3000</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
-    <body>  
-        <main id="fenetre" class="page active">
+    <body>
+        <div id="accueil" class="page active">
+            <h1>Fish and Click</h1>
+            <div class="cont-bout">
+                <button id="btnplay" class="btn">Jouer</button>
+                <button id="btnson" class="btn">Volume</button>
+            </div>
+            <input id="husson" type="range" class="effaceur" min="
+            0" max="100" step="5" value="50"></input>
+            <div class="tableau-scores">
+
+                </div>
+            <div class="contain-bonhomme">
+                <img class="pecheur" src="image/pecheurfou.png" alt="pecheur fou">
+            </div>
+        </div>
+        <main id="fenetre" class="page hidden">
             <div class="contain-boutons">
                     <button id="btn-achat" class="btn">Améliorer</button>
                     <div class="contain-compt">
@@ -48,6 +66,10 @@
                     <div class="premiere-ligne">
                         <div class="partie-gauche">
                             <h3>* Poser un filet *</h3>
+                            <div class="cont-log">
+                                <img id="filet1" src="image/filet.png" alt="filet">
+                                <span id="qte-filet">0</span>actif(s)
+                            </div>
                         </div>
                         <div class="partie-bouton">
                             <button id="btn-bonus-auto">
@@ -85,10 +107,28 @@
                 </div>
             </div>
             <div class="contain-bonhomme">
-                <img class="pecheur" src="image/pecheur fous.png" alt="pecheur fou">
+                <img class="pecheur" src="image/pecheurfou.png" alt="pecheur fou">
             </div>
         </main>
-        <div id="accueil" class="page hidden"></div>
+        <div id="fenetre-fin" class="page hidden">
+            <div class="resultats">
+                <p class="bravo">Bravo !!</p>
+                <p class="message">Tu as réussi à pêcher</p>
+                <div class="contain-compt2">
+                        <span id="compteur-total">0</span>
+                        <img id="fish-logo-result" src="image/fish.png"></img>
+                    </div>
+            </div>
+                <button id="btnacc">Accueil</button>
+                <button id="btnrej">Rejouer</button>
+                <button id="btnquit">Quitter</button>
+                <div class="tableau-scores">
+
+                </div>
+                <div class="contain-bonhomme">
+                <img class="pecheur" src="image/pecheurfou.png" alt="pecheur fou">
+            </div>
+        </div>
         <script src="action.js"></script>
     </body>
 </html>

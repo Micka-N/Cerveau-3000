@@ -1,9 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const chiffreCompteur = document.querySelector("#compteur");
-  const boutonMediter = document.querySelector("#btn-mediter");
+  
+  const boutonJouer = document.querySelector("#btnplay");
+  const boutonSon = document.querySelector("#btnson");
+  const barreSon = document.querySelector("#husson");
+
+  const fenetre = document.querySelector("#fenetre");
+  const fenetreAccueil = document.querySelector("#accueil");
+  const fenetreFin = document.querySelector("#fenetre-fin");
+  const chiffreCompteurTotal = document.querySelector("#compteur-total");
 
   const conteneurAmeliorations = document.querySelector(".contain-ameliorations");
+  const conteneurBoutons = document.querySelector(".contain-boutons");
+  const conteneurBonhomme = document.querySelector(".contain-bonhomme");
+
+  const boutonMediter = document.querySelector("#btn-mediter");
+  const chiffreCompteur = document.querySelector("#compteur");
   const boutonAmeliorer = document.querySelector("#btn-achat");
+  const chiffreTimer = document.querySelector("#timer");
 
   const bonus1 = document.querySelector(".bonus1");
   const boutonAchatBonus1 = document.querySelector("#btn-bonus-manuel");
@@ -17,19 +30,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const boutonAchatBonus3 = document.querySelector("#btn-bonus-boost");
   const chiffreBouton3 = document.querySelector(".prix-bonus3");
 
-  const chiffreTimer = document.querySelector("#timer");
+  const chiffreNbreFilets = document.querySelector("#qte-filet");
   const chiffreTimer30 = document.querySelector("#timer30");
+
+  const boutonAccueil = document.querySelector("#btnacc");
+  const boutonRejouer = document.querySelector("#btnrej");
+  const boutonQuitter = document.querySelector("#btnquit");
+  
+
+
+
+
+
 
   let valeurCompteur = 0;
   let valeurBtnBonus1 = parseInt(chiffreBouton1.textContent);
   let valeurBtnBonus2 = parseInt(chiffreBouton2.textContent);
   let valeurBtnBonus3 = parseInt(chiffreBouton3.textContent);
   let sommeBonus1 = 0;
-  let valeurTimer = 110;
+  let valeurTimer = 3;
   let aDejaClique = false;
   let valeurTimer30 = 30;
+  let idSetIntervals = [];
+  let valeurQteFilets = 0;
+
+  
 
 
+
+
+
+  boutonJouer.addEventListener("click", (event) => {
+    event.preventDefault();
+    fenetreDeJeu();
+  });
+  boutonSon.addEventListener("click", (event) => {
+    event.preventDefault();
+    
+    husson.classList.toggle("effaceur");
+  })
 
 
 
@@ -41,206 +80,205 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     mediterManuellement();
 
-if (verifierDispo(valeurBtnBonus1)) {
-        apparition(bonus1);
-        boutonAchatBonus1.disabled = false;
-    } else {
-      disparition(bonus1);
-      boutonAchatBonus1.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus2)) {
-        apparition(bonus2);
-        boutonAchatBonus2.disabled = false;
-    } else {
-      disparition(bonus2);
-      boutonAchatBonus2.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus3)) {
-        apparition(bonus3);
-        boutonAchatBonus3.disabled = false;
-    } else {
-      disparition(bonus3);
-      boutonAchatBonus3.disabled = true;
-    }
+    majEtatBonus(bonus1, boutonAchatBonus1, valeurBtnBonus1);
+    majEtatBonus(bonus2, boutonAchatBonus2, valeurBtnBonus2);
+    majEtatBonus(bonus3, boutonAchatBonus3, valeurBtnBonus3);
   });
-
   boutonAmeliorer.addEventListener("click", (event) => {
     event.preventDefault();
-    boutonAmeliorer.classList.add("hidden");
+    boutonAmeliorer.classList.add("effaceur");
+    boutonAmeliorer.disabled = true;
     conteneurAmeliorations.classList.remove("hidden");
     
-  if (verifierDispo(valeurBtnBonus1)) {
-        apparition(bonus1);
-        boutonAchatBonus1.disabled = false;
-    } else {
-      disparition(bonus1);
-      boutonAchatBonus1.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus2)) {
-        apparition(bonus2);
-        boutonAchatBonus2.disabled = false;
-    } else {
-      disparition(bonus2);
-      boutonAchatBonus2.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus3)) {
-        apparition(bonus3);
-        boutonAchatBonus3.disabled = false;
-    } else {
-      disparition(bonus3);
-      boutonAchatBonus3.disabled = true;
-    }
+    majEtatBonus(bonus1, boutonAchatBonus1, valeurBtnBonus1);
+    majEtatBonus(bonus2, boutonAchatBonus2, valeurBtnBonus2);
+    majEtatBonus(bonus3, boutonAchatBonus3, valeurBtnBonus3);
     
   });
-
   boutonAchatBonus1.addEventListener("click", (event) => {
     event.preventDefault();
-    feedBackColorBonus(bonus1);
     sommeBonus1++;
+
+    if (valeurCompteur >= valeurBtnBonus1) {
+
     valeurCompteur -= valeurBtnBonus1;
     chiffreCompteur.textContent = parseInt(valeurCompteur);
-  if (verifierDispo(valeurBtnBonus1)) {
-        apparition(bonus1);
-        boutonAchatBonus1.disabled = false;
-    } else {
-      disparition(bonus1);
-      boutonAchatBonus1.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus2)) {
-        apparition(bonus2);
-        boutonAchatBonus2.disabled = false;
-    } else {
-      disparition(bonus2);
-      boutonAchatBonus2.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus3)) {
-        apparition(bonus3);
-        boutonAchatBonus3.disabled = false;
-    } else {
-      disparition(bonus3);
-      boutonAchatBonus3.disabled = true;
-    }
+    majEtatBonus(bonus1, boutonAchatBonus1, valeurBtnBonus1);
+    majEtatBonus(bonus2, boutonAchatBonus2, valeurBtnBonus2);
+    majEtatBonus(bonus3, boutonAchatBonus3, valeurBtnBonus3);
     valeurBtnBonus1 += valeurBtnBonus1 * 20 / 100;
     chiffreBouton1.textContent = Math.round(valeurBtnBonus1);
+    } else return;
   });
-   boutonAchatBonus2.addEventListener("click", (event) => {
+  boutonAchatBonus2.addEventListener("click", (event) => {
     event.preventDefault();
-    feedBackColorBonus(bonus2);
+
+    if (valeurCompteur >= valeurBtnBonus2) {
+
     valeurCompteur -= valeurBtnBonus2;
     chiffreCompteur.textContent = parseInt(valeurCompteur);
-   if (verifierDispo(valeurBtnBonus1)) {
-        apparition(bonus1);
-        boutonAchatBonus1.disabled = false;
-    } else {
-      disparition(bonus1);
-      boutonAchatBonus1.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus2)) {
-        apparition(bonus2);
-        boutonAchatBonus2.disabled = false;
-    } else {
-      disparition(bonus2);
-      boutonAchatBonus2.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus3)) {
-        apparition(bonus3);
-        boutonAchatBonus3.disabled = false;
-    } else {
-      disparition(bonus3);
-      boutonAchatBonus3.disabled = true;
-    }
+    majEtatBonus(bonus1, boutonAchatBonus1, valeurBtnBonus1);
+    majEtatBonus(bonus2, boutonAchatBonus2, valeurBtnBonus2);
+    majEtatBonus(bonus3, boutonAchatBonus3, valeurBtnBonus3);
     valeurBtnBonus2 += valeurBtnBonus2 * 20 / 100;
     chiffreBouton2.textContent = Math.round(valeurBtnBonus2);
     ajout1PointPar2s();
+    const id = ajout1PointPar2s();
+    idSetIntervals.push(id);
+    valeurQteFilets = idSetIntervals.length;
+    chiffreNbreFilets.textContent = valeurQteFilets;
+
+    }
   });
   boutonAchatBonus3.addEventListener("click", (event) => {
-        event.preventDefault();
-        chrono30();
-        feedBackColorBonus(bonus3);
-        valeurCompteur -= valeurBtnBonus3;
-        chiffreCompteur.textContent = parseInt(valeurCompteur);
-   if (verifierDispo(valeurBtnBonus1)) {
-        apparition(bonus1);
-        boutonAchatBonus1.disabled = false;
-    } else {
-      disparition(bonus1);
-      boutonAchatBonus1.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus2)) {
-        apparition(bonus2);
-        boutonAchatBonus2.disabled = false;
-    } else {
-      disparition(bonus2);
-      boutonAchatBonus2.disabled = true;
-    }
-    if (verifierDispo(valeurBtnBonus3)) {
-        apparition(bonus3);
-        boutonAchatBonus3.disabled = false;
-    } else {
-      disparition(bonus3);
-      boutonAchatBonus3.disabled = true;
-    }
+    event.preventDefault();
+
+    if (valeurCompteur >= valeurBtnBonus3) {
+
+    majEtatBonus(bonus1, boutonAchatBonus1, valeurBtnBonus1);
+    majEtatBonus(bonus2, boutonAchatBonus2, valeurBtnBonus2);
+    majEtatBonus(bonus3, boutonAchatBonus3, valeurBtnBonus3);
     valeurBtnBonus3 += valeurBtnBonus3 * 20 / 100;
     chiffreBouton3.textContent = Math.round(valeurBtnBonus3);
+    valeurCompteur += valeurBtnBonus3;
+    chiffreCompteur.textContent = parseInt(valeurCompteur);
+    chrono30();
+    idSetIntervals.push(chrono30)
+    }
   });
+
+
+
+  boutonAccueil.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    fenetreRetourAccueil();
+    window.location.reload();
+  })
+  boutonRejouer.addEventListener("click", (event) => {
+    event.preventDefault();
+    fenetreRejouer();
+    reset();
+  })
+  boutonQuitter.addEventListener("click", (event) => {
+
+  })
+
 
 
 
 
 
   function mediterManuellement() {
-    valeurCompteur = valeurCompteur + 1 + sommeBonus1;
+    valeurCompteur = valeurCompteur + 111 + sommeBonus1;
     chiffreCompteur.textContent = Math.round(valeurCompteur);
   }
-  function apparition(bonus) {
-    bonus.classList.remove("hidden");
+  function apparition(bonus, bouton) {
+    bonus.style.opacity = "1";
+    bonus.style.filter = "grayscale(0%)";
+    bouton.style.backgroundColor = "#0058ab";
   }
-  function disparition(bonus) {
-    bonus.classList.add("hidden");
+  function disparition(bonus, bouton) {
+    bonus.style.opacity = "0.25";
+    bonus.style.filter = "grayscale(80%)";
+    bouton.style.backgroundColor = "grey";
   }
-  function verifierDispo(bonus) {
-    if (bonus <= valeurCompteur) {
+  function verifierDispo(valeur) {
+    if (valeur <= valeurCompteur) {
         return true;
     } else {
         return false;
     }
   }
   function ajout1PointPar2s() {
-    return setInterval(() => {
+    const filetActif = setInterval(() => {
         valeurCompteur++;
         chiffreCompteur.textContent = parseInt(valeurCompteur);
-    }, 2000)
+    }, 2000);
+    return filetActif;
   }
-  function feedBackColorBonus(bonus) {
-    bonus.style.backgroundColor = "#F9D5BE"
-    setTimeout(() => {
-        bonus.style.backgroundColor = "";
-    }, 250);
-  }
-   function chronoPrincipal() {
+  function chronoPrincipal() {
     const time = setInterval(() => {
         valeurTimer--;
         chiffreTimer.textContent = valeurTimer;
 
         if (valeurTimer <= 0) {
+            chiffreCompteurTotal.textContent = Math.round(valeurCompteur);
             clearInterval(time);
+            idSetIntervals.forEach(id => clearInterval(id));
+            fenetreDeFin();
         }
     }, 1000);
     return time;
   }
   function chrono30() {
-    const time30 = setInterval(() => {
-        boutonAchatBonus3.style.backgroundColor = "grey";
         boutonAchatBonus3.disabled = true;
+        boutonAchatBonus3.style.backgroundColor = "grey";
+        bonus3.style.backgroundColor = "rgb(175, 215, 205)";
+
+    const time30 = setInterval(() => {
         valeurTimer30--;
         chiffreTimer30.textContent = valeurTimer30;
-      
+        
         if (valeurTimer30 <= 0) {
             clearInterval(time30);
+            valeurTimer30 = 30;
+            chiffreTimer30.textContent = valeurTimer30;
+            boutonAchatBonus3.style.backgroundColor = "#0058ab";
             boutonAchatBonus3.disabled = false;
+            bonus3.style.backgroundColor = "rgb(63, 220, 178)";
         }
     }, 1000);
     return time30;
   }
-  
+  function majEtatBonus(bonus, bouton, valeur) {
+    if (verifierDispo(valeur)) {
+      apparition(bonus, bouton);
+      bouton.disabled = false;
+      bouton.style.cursor = "pointer";
+    } else {
+      disparition(bonus, bouton);
+      bouton.disabled = true;
+      bouton.style.cursor = "default";
+    };
+    if (valeurTimer30 < 30) {
+      boutonAchatBonus3.disabled = true;
+      boutonAchatBonus3.style.backgroundColor = "grey";
+      bonus3.style.opacity = "0.6";
+    }
+  }
+  function fenetreDeFin() {
+    
+      fenetre.classList.add("hidden");
+      fenetre.classList.remove("active");
+      fenetreFin.classList.remove("hidden");
+      fenetreFin.classList.add("active");
+
+  }
+  function fenetreDeJeu() {
+    fenetreAccueil.classList.remove("active");
+    fenetreAccueil.classList.add("hidden");
+    fenetre.classList.remove("hidden");
+    fenetre.classList.add("active");
+  }
+  function fenetreRetourAccueil() {
+    fenetreFin.classList.remove("active");
+    fenetreFin.classList.add("hidden");
+    fenetreAccueil.classList.remove("hidden");
+    fenetreAccueil.classList.add("active");
+    reset();
+  }
+  function fenetreRejouer() {
+    fenetreFin.classList.remove("active");
+    fenetreFin.classList.add("hidden");
+    fenetre.classList.remove("hidden");
+    fenetre.classList.add("active");
+  }
+  function reset() {
+    valeurCompteur = 0;
+    chiffreCompteur.textContent = valeurCompteur;
+    valeurTimer = 3;
+    chiffreTimer.textContent = valeurTimer;
+    aDejaClique = false;
+  }
 });
