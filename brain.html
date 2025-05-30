@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" >
         <meta charset="UTF-8">
-        <title>Cerveau 3000</title>
+        <title>Fish and Click &nbsp&nbsp&nbsp🐟</title>
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +14,41 @@
         <div id="accueil" class="page active">
             <h1>Fish and Click</h1>
             <div class="cont-bout">
-                <button id="btnplay" class="btn">Jouer</button>
+                <button id="btnregles" class="btn">Règles</button>
                 <button id="btnson" class="btn">Volume</button>
+                <button id="btnplay" class="btn">Jouer</button>
             </div>
             <input id="husson" type="range" class="effaceur" min="
             0" max="100" step="5" value="50"></input>
-            <div class="tableau-scores">
-
+            <div class="tableau">
+                <div class="top-scores active">
+                    <img class="symbole-top3" src="image/top 3 3d design_6075390.png" alt="symbole top3">
+                    <div class="cont-medals">
+                        <p class="pseudo1">******</p>
+                        <div class="nbfish"><span class="chiffre-tot">0</span><img class="taillefish" src="image/fish.png" alt="poisson">
+                        </div>
+                        <img class="num1" src="image/medals1.png" alt="">
+                    </div>
+                    <div class="cont-medals">
+                        <p class="pseudo2">***************</p>
+                        <div class="nbfish"><span class="chiffre-tot">0</span><img class="taillefish" src="image/fish.png" alt="poisson">
+                        </div>
+                        <img class="num2" src="image/medals3.png" alt="">
+                    </div>
+                    <div class="cont-medals">
+                        <p class="pseudo3">*********</p>
+                        <div class="nbfish"><span class="chiffre-tot">0</span><img class="taillefish" src="image/fish.png" alt="poisson">
+                        </div>
+                        <img class="num3" src="image/medals2.png" alt="">
+                    </div>
                 </div>
+                <div id="regles" class="hidden">
+                    <h5>Règles du jeu</h5>
+                    <div class="trait"></div>
+                    <p>Le but du jeu est d'attraper un maximum de poissons en 1 minute et 30 seconde !</p>
+                    <p class="centrer"> 🍀 Bonne chance !</p>
+                </div>
+            </div>
             <div class="contain-bonhomme">
                 <img class="pecheur" src="image/pecheurfou.png" alt="pecheur fou">
             </div>
@@ -110,23 +137,56 @@
                 <img class="pecheur" src="image/pecheurfou.png" alt="pecheur fou">
             </div>
         </main>
+
         <div id="fenetre-fin" class="page hidden">
             <div class="resultats">
-                <p class="bravo">Bravo !!</p>
-                <p class="message">Tu as réussi à pêcher</p>
-                <div class="contain-compt2">
-                        <span id="compteur-total">0</span>
-                        <img id="fish-logo-result" src="image/fish.png"></img>
-                    </div>
-            </div>
-                <button id="btnacc">Accueil</button>
-                <button id="btnrej">Rejouer</button>
-                <button id="btnquit">Quitter</button>
-                <div class="tableau-scores">
-
+                <div class="cont-bravo">
+                    <img id="confet" src="image/bravo2.svg" alt="confetis">
+                    <p class="bravo">Bravo !</p>
                 </div>
-                <div class="contain-bonhomme">
+                <p class="message">Tu as pêché</p>
+                <div class="contain-compt2">
+                    <span id="compteur-total">0</span>
+                    <img id="fish-logo-result" src="image/fish.png"></img>
+                </div>
+            </div>
+            <div class="cont-bout2">
+                <button class="btn" id="btnrej">Rejouer</button>
+                <button class="btn" id="btnacc">Accueil</button>
+                <button class="btn" id="btnquit">Quitter</button>
+            </div>
+            <div class="tableau">
+                <div class="top-scores" class="active">
+                    <img class="symbole-top3" src="image/top 3 3d design_6075390.png" alt="symbole top3">
+                    <div class="cont-medals">
+                        <p class="pseudo1">******</p>
+                        <div class="nbfish"><span class="chiffre-tot">0</span><img class="taillefish" src="image/fish.png" alt="poisson">
+                        </div>
+                        <img class="num1" src="image/medals1.png" alt="">
+                    </div>
+                    <div class="cont-medals">
+                        <p class="pseudo2">***************</p>
+                        <div class="nbfish"><span class="chiffre-tot">0</span><img class="taillefish" src="image/fish.png" alt="poisson">
+                        </div>
+                        <img class="num2" src="image/medals3.png" alt="">
+                    </div>
+                    <div class="cont-medals">
+                        <p class="pseudo3">*********</p>
+                        <div class="nbfish"><span class="chiffre-tot">0</span><img class="taillefish" src="image/fish.png" alt="poisson">
+                        </div>
+                        <img class="num3" src="image/medals2.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="contain-bonhomme">
                 <img class="pecheur" src="image/pecheurfou.png" alt="pecheur fou">
+            </div>
+        </div>
+
+        <div id="fenetre-merci" class="hidden">
+                <h1 class="thanks">Merci d'avoir joué à Fish and Click</h1>
+            <div class="contain-bonhomme">
+                    <img class="pecheur" src="image/pecheurfou.png" alt="pecheur fou">
             </div>
         </div>
         <script src="action.js"></script>

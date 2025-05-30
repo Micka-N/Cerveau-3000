@@ -1,13 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
+  const bodyx = document.body;
+
   const boutonJouer = document.querySelector("#btnplay");
   const boutonSon = document.querySelector("#btnson");
   const barreSon = document.querySelector("#husson");
+  const boutonRegles = document.querySelector("#btnregles");
+  const topScores = document.querySelector(".top-scores");
+  const afficheRegles = document.querySelector("#regles")
 
   const fenetre = document.querySelector("#fenetre");
   const fenetreAccueil = document.querySelector("#accueil");
   const fenetreFin = document.querySelector("#fenetre-fin");
   const chiffreCompteurTotal = document.querySelector("#compteur-total");
+  const fenetreMerciFinal = document.querySelector("#fenetre-merci");
 
   const conteneurAmeliorations = document.querySelector(".contain-ameliorations");
   const conteneurBoutons = document.querySelector(".contain-boutons");
@@ -54,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let idSetIntervals = [];
   let valeurQteFilets = 0;
 
-  
+
 
 
 
@@ -66,8 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   boutonSon.addEventListener("click", (event) => {
     event.preventDefault();
+    barreSon.classList.toggle("effaceur");
+    boutonSon.classList.toggle("actif");
+  })
+  boutonRegles.addEventListener("click", (event) => {
+    event.preventDefault();
+    switchRegles();
+    boutonRegles.classList.toggle("actif");
     
-    husson.classList.toggle("effaceur");
   })
 
 
@@ -149,6 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
   boutonAccueil.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -161,7 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
     reset();
   })
   boutonQuitter.addEventListener("click", (event) => {
-
+    event.preventDefault();
+    fenetreMerci();
   })
 
 
@@ -273,6 +286,26 @@ document.addEventListener("DOMContentLoaded", () => {
     fenetreFin.classList.add("hidden");
     fenetre.classList.remove("hidden");
     fenetre.classList.add("active");
+  }
+  function fenetreMerci() {
+    fenetreFin.classList.add("hidden");
+    fenetreFin.classList.remove("active");
+    fenetreMerciFinal.classList.remove("hidden");
+    fenetreMerciFinal.classList.add("active");
+    bodyx.style.backgroundColor = "black";
+  }
+  function switchRegles() {
+    if (topScores.classList.contains("active")) {
+    topScores.classList.remove("active");
+    topScores.classList.add("hidden");
+    afficheRegles.classList.remove("hidden");
+    afficheRegles.classList.add("active");
+    } else {
+    topScores.classList.remove("hidden");
+    topScores.classList.add("active");
+    afficheRegles.classList.remove("active");
+    afficheRegles.classList.add("hidden");
+    }
   }
   function reset() {
     valeurCompteur = 0;
