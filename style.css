@@ -560,14 +560,14 @@ button .price {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 200px;
+    gap: 10px;
     align-items: center;
 }
 
 .cont-bravo p {
     align-self: flex-end;
-    font-size: 2rem;
-    color: #05262f;
+    font-size: 3rem;
+    color: #083846;
 }
 
 .bravo {
@@ -595,6 +595,13 @@ button .price {
     justify-content: center;
     align-items: center;
     padding-top: 6px;
+}
+
+.contres {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 .contain-compt2 {
