@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let valeurBtnBonus2 = parseInt(chiffreBouton2.textContent);
   let valeurBtnBonus3 = parseInt(chiffreBouton3.textContent);
   let sommeBonus1 = 0;
-  let valeurTimer = 3;
+  let valeurTimer = 90;
   let aDejaClique = false;
   let valeurTimer30 = 30;
   let idSetIntervals = [];
@@ -83,6 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  afficherClassementTop3();
+});
   boutonMediter.addEventListener("click", (event) => {
     event.preventDefault();
     if (!aDejaClique) {
@@ -165,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     fenetreRetourAccueil();
-    window.location.reload();
+    reset();
   })
   boutonRejouer.addEventListener("click", (event) => {
     event.preventDefault();
@@ -183,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function mediterManuellement() {
-    valeurCompteur = valeurCompteur + 111 + sommeBonus1;
+    valeurCompteur = valeurCompteur + 1 + sommeBonus1;
     chiffreCompteur.textContent = Math.round(valeurCompteur);
   }
   function apparition(bonus, bouton) {
@@ -266,8 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fenetre.classList.remove("active");
       fenetreFin.classList.remove("hidden");
       fenetreFin.classList.add("active");
-
-  }
+  } 
   function fenetreDeJeu() {
     fenetreAccueil.classList.remove("active");
     fenetreAccueil.classList.add("hidden");
@@ -295,18 +298,14 @@ document.addEventListener("DOMContentLoaded", () => {
     bodyx.style.backgroundColor = "black";
   }
   function switchRegles() {
-    if (topScores.classList.contains("active")) {
-    topScores.classList.remove("active");
-    topScores.classList.add("hidden");
-    afficheRegles.classList.remove("hidden");
-    afficheRegles.classList.add("active");
-    } else {
-    topScores.classList.remove("hidden");
-    topScores.classList.add("active");
+  if (afficheRegles.classList.contains("active")) {
     afficheRegles.classList.remove("active");
     afficheRegles.classList.add("hidden");
-    }
+  } else {
+    afficheRegles.classList.remove("hidden");
+    afficheRegles.classList.add("active");
   }
+}
   function reset() {
     valeurCompteur = 0;
     chiffreCompteur.textContent = valeurCompteur;
@@ -314,4 +313,5 @@ document.addEventListener("DOMContentLoaded", () => {
     chiffreTimer.textContent = valeurTimer;
     aDejaClique = false;
   }
+
 });
